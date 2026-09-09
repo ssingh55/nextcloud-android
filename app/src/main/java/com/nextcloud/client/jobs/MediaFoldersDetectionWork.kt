@@ -45,7 +45,7 @@ import com.owncloud.android.ui.activity.SyncedFoldersActivity
 import com.owncloud.android.ui.notifications.NotificationUtils
 import com.owncloud.android.utils.SyncedFolderUtils
 import com.owncloud.android.utils.theme.ViewThemeUtils
-import java.util.Random
+import java.security.SecureRandom
 
 @Suppress("LongParameterList") // dependencies injection
 class MediaFoldersDetectionWork(
@@ -70,7 +70,7 @@ class MediaFoldersDetectionWork(
         private val DISABLE_DETECTION_CLICK = MainApp.getAuthority() + "_DISABLE_DETECTION_CLICK"
     }
 
-    private val randomIdGenerator = Random(clock.currentTime)
+    private val randomIdGenerator = SecureRandom()
 
     @Suppress("LongMethod", "ComplexMethod", "NestedBlockDepth", "ReturnCount") // legacy code
     override fun doWork(): Result {
